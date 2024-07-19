@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Booking Status Prediction Model</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Booking Status Prediction Using Machine Learning</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+
+            <label for="total_people">Total People:</label>
+            <input type="number" id="total_people" name="total_people" placeholder="Enter total number of people" required>
+            
+            <label for="total_nights">Total Nights:</label>
+            <input type="number" id="total_nights" name="total_nights" placeholder="Enter total nights reserved" required>
+
+            <label for="date_of_reservation">Date of Reservation:</label>
+            <input type="date" id="date_of_reservation" name="date_of_reservation" required>
+            
+            <label for="lead_time">Lead Time (days):</label>
+            <input type="number" id="lead_time" name="lead_time" placeholder="Enter lead time for reservation" required>
+            
+            <label for="average_price">Average Price ($):</label>
+            <input type="number" step="0.01" id="average_price" name="average_price" placeholder="Enter Average Price" required>
+            
+            <label for="meal_plan">Meal Plan (0, 1, 2):</label>
+            <input type="number" id="meal_plan" name="meal_plan" placeholder="Choose meal plan" required>
+            
+            <label for="room_type">Room Type (1-7):</label>
+            <input type="number" id="room_type" name="room_type" placeholder="Choose room type" required>
+            
+            <label for="car_parking_space">Car Parking Space (0, 1):</label>
+            <input type="number" id="car_parking_space" name="car_parking_space" placeholder="Car parking space" required>
+            
+            <label for="special_requests">Special Requests (0-5):</label>
+            <input type="number" id="special_requests" name="special_requests" placeholder="Special requests" required>
+
+            <label>Market Segment Type:</label>
+            <div class="radio-group">
+              <input type="radio" id="market_segment_online" name="market_segment_type" value="1" required>
+              <label for="market_segment_online">Online</label>
+              
+              <input type="radio" id="market_segment_offline" name="market_segment_type" value="2" required>
+              <label for="market_segment_offline">Offline</label>
+              
+              <input type="radio" id="market_segment_corporate" name="market_segment_type" value="3" required>
+              <label for="market_segment_corporate">Corporate</label>
+              
+              <input type="radio" id="market_segment_complementary" name="market_segment_type" value="4" required>
+              <label for="market_segment_complementary">Complementary</label>
+          </div>
+                              
+            <button type="submit">Run Prediction</button>
+        </form>
+        
+        {% if prediction_text %}
+            <p class="prediction">{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
