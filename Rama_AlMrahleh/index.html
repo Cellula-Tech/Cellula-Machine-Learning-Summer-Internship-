@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ADD8E6; /* Light blue color */
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        input, select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #ADD8E6; /* Light blue color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background: #87CEEB; /* Sky blue color */
+        }
+        #result {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ADD8E6; /* Light blue color */
+        }
+        #error {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Prediction</h1>
+        <form id="predictionForm">
+            <label for="numAdults">Number of Adults:</label>
+            <input type="number" id="numAdults" name="numAdults" min="0">
+
+
+
+            <label for="numWeekendNights">Number of Weekend Nights:</label>
+            <input type="number" id="numWeekendNights" name="numWeekendNights" min="0">
+
+            <label for="numWeekNights">Number of Week Nights:</label>
+            <input type="number" id="numWeekNights" name="numWeekNights" min="0">
+
+
+            <label for="leadTime">Lead Time:</label>
+            <input type="number" id="leadTime" name="leadTime" min="0">
+
+        
+
+            <label for="averagePrice">Average Price:</label>
+            <input type="number" id="averagePrice" name="averagePrice" min="0">
+
+            <label for="specialRequests">Special Requests:</label>
+            <input type="number" id="specialRequests" name="specialRequests" min="0">
+
+            <label for="reservationDate">Date of Reservation:</label>
+            <input type="date" id="reservationDate" name="reservationDate">
+
+
+<label for="marketSegment">Market Segment:</label>
+<select id="marketSegment" name="marketSegment">
+    <option value="Offline">Offline</option>
+    <option value="Online">Online</option>
+</select>
+
+
+            <button type="button" onclick="predict()">Predict</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+       
+       function predict() {
+            const form = document.getElementById('predictionForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('http://localhost:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.prediction) {
+                    document.getElementById('result').innerHTML = `<p>Prediction: <strong>${result.prediction}</strong></p>`;
+                    document.getElementById('error').innerHTML = '';
+                } else if (result.error) {
+                    document.getElementById('error').innerHTML = `<p>Error: <strong>${result.error}</strong></p>`;
+                    document.getElementById('result').innerHTML = '';
+                }
+            })
+            .catch(error => {
+                document.getElementById('error').innerHTML = `<p>Error: <strong>${error}</strong></p>`;
+                document.getElementById('result').innerHTML = '';
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    
+</body>
+</html>
+
+
