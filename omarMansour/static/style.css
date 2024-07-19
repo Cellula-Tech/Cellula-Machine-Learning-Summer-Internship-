@@ -1,0 +1,124 @@
+body {
+  font-family: 'Arimo', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+.login {
+  width: 300px;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.login h1 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 20px;
+}
+.login input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.login button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.login button:hover {
+  background: #0056b3;
+}
+
+
+body {
+  font-family: 'Arimo', sans-serif;
+  margin: 0;
+  padding: 0;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: inline;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.left-section {
+  /*flex: 1;*/
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.main-section {
+  width: 300px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-left: auto;
+  /*top: 20px; !* Distance from the top *!*/
+  /*right: 20px; !* Distance from the right *!*/
+}
+.main-section h1 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 20px;
+}
+.main-section input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.main-section button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.main-section button:hover {
+  background: #0056b3;
+}
+
+.right-section {
+  flex: 1;
+  padding: 5px;
+}
+
+.right-section img {
+  max-width: 100%;
+  height: auto;
+  display: inline;
+}
+
+.main-section h1 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 20px;
+}
+
+.main-section input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.main-section button:hover {
+  background: #0056b3;
+}

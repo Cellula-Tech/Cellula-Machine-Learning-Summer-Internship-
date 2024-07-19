@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="login">
+    <h1>Booking Status Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="text" name="number_of_adults" placeholder="Number of adults" required="required" />
+      <input type="text" name="number_of_children" placeholder="Number of children" required="required" />
+      <input type="text" name="number_of_weekend_nights" placeholder="Number of weekend nights" required="required" />
+      <input type="text" name="number_of_week_nights" placeholder="Number of week nights" required="required" />
+      <input type="text" name="type_of_meal" placeholder="Type of meal" required="required" />
+      <input type="text" name="car_parking_space" placeholder="Car parking space" required="required" />
+      <input type="text" name="room_type" placeholder="Room type" required="required" />
+      <input type="text" name="lead_time" placeholder="Lead time" required="required" />
+      <input type="text" name="market_segment_type" placeholder="Market segment type" required="required" />
+      <input type="text" name="repeated" placeholder="Repeated" required="required" />
+      <input type="text" name="P_not_C" placeholder="P-not-C" required="required" />
+      <input type="text" name="average_price" placeholder="Average price" required="required" />
+      <input type="text" name="special_requests" placeholder="Special requests" required="required" />
+      <button type="submit">Predict</button>
+    </form>
+    <br><br>
+    <div>
+    <h1>omar mansour</h1>
+    </div>
+    <div>{{ prediction_text1 }}</div>
+    <div>{{ prediction_text2 }}</div>
+    <div>{{ prediction_text3 }}</div>
+    <div>{{ prediction_text4 }}</div>
+  </div>
+</body>
+</html>
