@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Status Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Booking Status Prediction</h2>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="type_of_meal">Type of Meal</label>
+                <input type="number" class="form-control" id="type_of_meal" name="type_of_meal" required>
+            </div>
+            <div class="form-group">
+                <label for="average_price">Average Price</label>
+                <input type="number" class="form-control" id="average_price" name="average_price" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_week_nights">Number of Week Nights</label>
+                <input type="number" class="form-control" id="number_of_week_nights" name="number_of_week_nights" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_weekend_nights">Number of Weekend Nights</label>
+                <input type="number" class="form-control" id="number_of_weekend_nights" name="number_of_weekend_nights" required>
+            </div>
+            <div class="form-group">
+                <label for="room_type">Room Type</label>
+                <input type="number" class="form-control" id="room_type" name="room_type" required>
+            </div>
+            <div class="form-group">
+                <label for="lead_time">Lead Time</label>
+                <input type="number" class="form-control" id="lead_time" name="lead_time" required>
+            </div>
+            <div class="form-group">
+                <label for="special_requests">Number of Special Requests</label>
+                <input type="number" class="form-control" id="special_requests" name="special_requests" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="number" class="form-control" id="year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="month">Month</label>
+                <input type="number" class="form-control" id="month" name="month" required>
+            </div>
+            <div class="form-group">
+                <label for="day">Day</label>
+                <input type="number" class="form-control" id="day" name="day" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <div class="alert alert-info mt-3">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
