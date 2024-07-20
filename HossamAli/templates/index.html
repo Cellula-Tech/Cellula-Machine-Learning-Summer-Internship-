@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+      <head>
+        <meta charset="utf-8">
+        <title>Booking Status Prediction</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		
+		<style>
+			.content {
+			  max-width: 500px;
+			  margin: auto;
+			}
+			
+			
+			.bg-img{
+		width: 100%;
+		height: 100vh;
+		background-size: cover;
+		background-position: center;
+			}
+			</style>
+    </head>
+	
+<body>
+<div class="bg-img">
+<div class="content">
+    <body>
+  
+        <h1>Booking Status Prediction</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="number_of_weekend_nights" placeholder="Number Of Weekend Nights" required="required">
+            <input type="text" name="number_of_week_nights" placeholder="Number Of Week Nights" required="required">
+            <input type="text" name="lead_time" placeholder="Lead Time" required="required">
+            <input type="text" name="market_segment_type" placeholder="Market Segment Type" required="required">
+            <input type="text" name="average_price" placeholder="Average Price" required="required">
+            <input type="text" name="special_requests" placeholder="Special Requests" required="required">
+            <input type="text" name="month" placeholder="Month" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Run</button>
+        </form>
+        <br>
+        <br>
+        {% if prediction_text %}
+            <div class="alert alert-info mt-3">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+</div>
+</div>
+</html>
