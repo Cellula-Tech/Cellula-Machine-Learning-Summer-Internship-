@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Status Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Booking Status Prediction</h1>
+        <form id="bookingForm" action="/predict" method="post">
+            <label for="booking_id">Booking ID:</label>
+            <input type="text" id="booking_id" name="Booking_ID" value="BKG12345" required><br>
+
+            <label for="number_of_adults">Number of Adults:</label>
+            <input type="number" id="number_of_adults" name="number of adults" min="0" max="10" value="2" required><br>
+
+            <label for="number_of_children">Number of Children:</label>
+            <input type="number" id="number_of_children" name="number of children" min="0" max="10" value="1"
+                required><br>
+
+            <label for="number_of_weekend_nights">Number of Weekend Nights:</label>
+            <input type="number" id="number_of_weekend_nights" name="number of weekend nights" min="0" max="30"
+                value="2" required><br>
+
+            <label for="number_of_week_nights">Number of Week Nights:</label>
+            <input type="number" id="number_of_week_nights" name="number of week nights" min="0" max="30" value="3"
+                required><br>
+
+            <label for="type_of_meal">Type of Meal:</label>
+            <select id="type_of_meal" name="type of meal" required>
+                <option value="Meal Plan 1" selected>Meal Plan 1</option>
+                <option value="Not Selected">Not Selected</option>
+                <option value="Meal Plan 2">Meal Plan 2</option>
+                <option value="Meal Plan 3">Meal Plan 3</option>
+            </select><br>
+
+            <label for="car_parking_space">Car Parking Space:</label>
+            <select id="car_parking_space" name="car parking space" required>
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+            </select><br>
+
+            <label for="room_type">Room Type:</label>
+            <select id="room_type" name="room type" required>
+                <option value="Room_Type 1">Room_Type 1</option>
+                <option value="Room_Type 2">Room_Type 2</option>
+                <option value="Room_Type 3" selected>Room_Type 3</option>
+                <option value="Room_Type 4">Room_Type 4</option>
+                <option value="Room_Type 5">Room_Type 5</option>
+                <option value="Room_Type 6">Room_Type 6</option>
+                <option value="Room_Type 7">Room-Type 7</option>
+            </select><br>
+
+            <label for="lead_time">Lead Time:</label>
+            <input type="number" id="lead_time" name="lead time" min="0" max="365" value="120" required><br>
+
+            <label for="market_segment_type">Market Segment Type:</label>
+            <select id="market_segment_type" name="market segment type" required>
+                <option value="Offline">Offline</option>
+                <option value="Online" selected>Online</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Aviation">Aviation</option>
+                <option value="Complementary">Complementary</option>
+            </select><br>
+
+            <label for="repeated">Repeated:</label>
+            <select id="repeated" name="repeated" required>
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+            </select><br>
+
+            <label for="P-C">P-C:</label>
+            <input type="number" id="P-C" name="P-C" min="0" max="13" value="5" required><br>
+
+            <label for="P-not-C">P-not-C:</label>
+            <input type="number" id="P-not-C" name="P-not-C" min="0" max="58" value="10" required><br>
+
+            <label for="average_price">Average Price:</label>
+            <input type="number" id="average_price" name="average price" min="0" step="0.01" value="150.75"
+                required><br>
+
+            <label for="special_requests">Special Requests:</label>
+            <input type="number" id="special_requests" name="special requests" min="0" max="5" value="2" required><br>
+
+            <label for="date_of_reservation">Date of Reservation (m/d/Y):</label>
+            <input type="text" id="date_of_reservation" name="date of reservation" value="7/20/2024" required><br>
+
+            <input type="submit" value="Predict">
+        </form>
+        <h2>{{ prediction_text }}</h2>
+    </div>
+</body>
+
+</html>
